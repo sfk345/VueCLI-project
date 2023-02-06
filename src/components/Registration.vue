@@ -31,18 +31,36 @@ export default {
 </script>
 
 <style scoped>
-  .registration{
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    padding: 10px;
-    margin: 0 auto;
-  }
-  .registration input, button{
-    border: 1px solid black;
-    border-radius: 5px;
-  }
-  .hr{
-    margin: 10px 0;
-  }
+.registration {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  padding: 30px;
+  margin: 10px;
+  background: linear-gradient(47deg, #faebd757, #faebd7, rgb(139 55 55 / 84%));
+  border-radius: 15px;
+  box-shadow: 0px 7px 13px 4px rgb(139 55 55 / 75%);
+}
+.registration input{
+  border: none;
+  border-bottom: solid brown;
+  background: none;
+  margin-bottom: 10px;
+}
+.registration button {
+  border: none;
+  background: rgb(139 55 55 / 82%);
+  padding: 7px;
+  border-radius: 13px;
+  color: antiquewhite;
+  font-size: 15px;
+}
+label{
+  color: brown;
+  font-weight: bold;
+}
+h1 {
+  color: brown;
+  margin: 20px 0;
+}
 </style>

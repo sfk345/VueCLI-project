@@ -62,7 +62,8 @@ export default {
     color: brown;
     font-weight: bold;
   }
-  h2 {
-      margin: 10px 0;
-    }
+  h1 {
+    color: brown;
+    margin: 20px 0;
+  }
 </style>
