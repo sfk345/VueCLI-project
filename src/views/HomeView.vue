@@ -1,15 +1,58 @@
 <template>
   <h1>Hello</h1>
-  <ul class="list">
-  </ul>
+  <div class="list">
+    <router-link to="catalog" @click="activeButton(); catalogActiveButton = true" :class="{active_button : catalogActiveButton}"><p>Catalog</p></router-link>
+    <router-link to="login" @click="activeButton(); loginActiveButton = true" :class="{active_button : loginActiveButton}"><p>Login</p></router-link>
+    <router-link to="registration" @click="activeButton(); registerActiveButton = true" :class="{active_button : registerActiveButton}"><p>Registration</p></router-link>
+    <router-link to="cart" @click="activeButton(); cartActiveButton = true" :class="{active_button : cartActiveButton}">Cart</router-link>
+    <router-link to="cart" @click="activeButton(); ordersActiveButton = true" :class="{active_button : ordersActiveButton}">Orders</router-link>
+  </div>
 </template>
 <script>
+import Catalog from "@/components/Catalog.vue";
+
 export default {
+  name: "HomeView",
+  data(){
+    return{
+      catalogActiveButton: true,
+      cartActiveButton: false,
+      loginActiveButton: false,
+      registerActiveButton: false,
+      ordersActiveButton: false
+    }
+  },
+  methods:{
+    activeButton(){
+      this.catalogActiveButton = false
+      this.cartActiveButton = false
+      this.loginActiveButton = false
+      this.registerActiveButton = false
+      this.ordersActiveButton = false
+    }
+  }
 }
 </script>
 <style scoped>
+a{
+  color: rgb(139 55 55 / 82%);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
 .list {
-  width: 100%;
-  padding: 0;
+  display: flex;
+  width: 550px;
+  height: 50px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.active_button p{
+  border-radius: 5px;
+  background-color: antiquewhite;
+  border: none;
+  box-shadow: 0px 1px 10px #ae9460;
+  padding: 5px;
+  color: brown;
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
-  <router-view/>
+  <home-view></home-view>
+  <router-view></router-view>
 </template>
 
 <style>
@@ -9,6 +10,9 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 nav {
@@ -24,3 +28,6 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+<script setup>
+import HomeView from "@/views/HomeView.vue";
+</script>
