@@ -1,11 +1,11 @@
 <template>
   <h1>Hello</h1>
   <div class="list">
-    <router-link to="catalog" @click="activeButton(); catalogActiveButton = true" :class="{active_button : catalogActiveButton}"><p>Catalog</p></router-link>
+    <router-link to="" @click="activeButton(); catalogActiveButton = true" :class="{active_button : catalogActiveButton}"><p>Catalog</p></router-link>
     <router-link to="login" @click="activeButton(); loginActiveButton = true" :class="{active_button : loginActiveButton}"><p>Login</p></router-link>
     <router-link to="registration" @click="activeButton(); registerActiveButton = true" :class="{active_button : registerActiveButton}"><p>Registration</p></router-link>
-    <router-link to="cart" @click="activeButton(); cartActiveButton = true" :class="{active_button : cartActiveButton}">Cart</router-link>
-    <router-link to="cart" @click="activeButton(); ordersActiveButton = true" :class="{active_button : ordersActiveButton}">Orders</router-link>
+    <router-link to="cart" @click="activeButton(); cartActiveButton = true" :class="{active_button : cartActiveButton}"><p>Cart</p></router-link>
+    <router-link to="cart" @click="activeButton(); ordersActiveButton = true" :class="{active_button : ordersActiveButton}"><p>Orders</p></router-link>
   </div>
 </template>
 <script>

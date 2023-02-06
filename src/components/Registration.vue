@@ -1,8 +1,10 @@
 <template>
   <form class="registration" @submit.prevent="registration">
     <h1>Sign up</h1>
-    <label>User name</label>
-    <input type="text" required v-model="username">
+    <label>Full name</label>
+    <input type="text" required v-model="fullName" />
+    <label>Email</label>
+    <input type="email" required v-model="email" />
     <label>Password</label>
     <input type="password" required v-model="password">
     <hr>
@@ -14,14 +16,16 @@
 export default {
   data(){
     return{
-      username: "",
+      fullName: "",
+      email: "",
       password: "",
     };
   },
   methods: {
     registration(){
       const userData = {
-        username: this.username,
+        fullName: this.fullName,
+        email: this.email,
         password: this.password
       };
 

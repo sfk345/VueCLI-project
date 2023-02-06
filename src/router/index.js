@@ -12,7 +12,7 @@ const ifNotAuthenticated = (to, from, next) => {
         next();
         return;
     }
-    next('/');
+    next('');
 };
 
 const ifAuthenticated = (to, from, next) => {
