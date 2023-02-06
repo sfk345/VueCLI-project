@@ -20,32 +20,33 @@ export default {
   },
   methods:{
     login() {
-      const userData = {
-        username: this.username,
-        password: this.password,
-      };
-      // this.$store
-      //     .dispatch(AUTH_REQUEST, userData)
-      //     .then(() => this.$router.push("/"));
+        const userData = {
+          username: this.username,
+          password: this.password,
+        };
+
+        // this.$store
+        //     .dispatch(AUTH_REQUEST, userData)
+        //     .then(() => this.$router.push("/"));
     },
   },
 };
 </script>
 
 <style scoped>
-.login {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  padding: 10px;
-  margin: 0 auto;
-}
-.login input,
-button {
-  border: 1px solid black;
-  border-radius: 5px;
-h2 {
-  margin: 10px 0;
-}
-}
+  .login {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 10px;
+    margin: 0 auto;
+  }
+  .login input,
+  button {
+    border: 1px solid black;
+    border-radius: 5px;
+    h2 {
+      margin: 10px 0;
+    }
+  }
 </style>
