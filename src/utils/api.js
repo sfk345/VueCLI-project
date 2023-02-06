@@ -1,6 +1,6 @@
 const API = process.env.VUE_APP_API;
 
-export const loginRequest = (user) => {
+export  const loginRequest = (user) => {
     return new Promise((resolve, reject) => {
         fetch(`${API}/login`, {
             method: 'POST',
@@ -13,7 +13,7 @@ export const loginRequest = (user) => {
             .then((result) => resolve(result.data.user_token))
             .catch((error) => {
                 reject(error);
-            })
-    })
-}
+            });
+    });
+};
 

@@ -2,49 +2,50 @@
   <form class="login" @submit.prevent="login">
     <h1>Sign in</h1>
     <label>User name</label>
-    <input type="text" required v-model="username">
+    <input type="text" required v-model="username" />
     <label>Password</label>
     <input type="password" required v-model="password">
-    <hr>
+    <hr />
     <button type="submit">Login</button>
   </form>
 </template>
 
 <script>
 export default {
-  data(){
-    return{
+  data() {
+    return {
       username: "",
       password: "",
     };
   },
-  methods: {
-    login(){
+  methods:{
+    login() {
       const userData = {
         username: this.username,
-        password: this.password
+        password: this.password,
       };
-      this.$store
-        .dispatch(AUTH_REQUEST, userData)
-        .then(() => this.$router.push("/"));
+      // this.$store
+      //     .dispatch(AUTH_REQUEST, userData)
+      //     .then(() => this.$router.push("/"));
     },
   },
 };
 </script>
 
 <style scoped>
-.login{
+.login {
   display: flex;
   flex-direction: column;
   width: 300px;
   padding: 10px;
   margin: 0 auto;
 }
-.login input, button{
+.login input,
+button {
   border: 1px solid black;
   border-radius: 5px;
-}
-hr{
+h2 {
   margin: 10px 0;
+}
 }
 </style>
