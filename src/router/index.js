@@ -1,11 +1,12 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import store from "@/store";
-import HomeView from "@/views/HomeView.vue";
+// import HomeView from "@/views/HomeView.vue";
 import Login from "@/components/Login.vue";
 import Registration from "@/components/Registration.vue";
 import Cart from "@/components/Cart.vue";
 import Orders from "@/components/Orders.vue";
 import Catalog from "@/components/Catalog.vue";
+import HomeView from "@/views/HomeView.vue";
 
 const ifNotAuthenticated = (to, from, next) => {
     if (!store.getters.isAuthenticated) {
@@ -24,7 +25,8 @@ const ifAuthenticated = (to, from, next) => {
 }
 
 const routes = [
-    {path: '', redirect: {name: Catalog}},
+    {path: '', redirect: {name: HomeView}},
+    {path: '/catalog', name: 'catalog', component: Catalog},
     {path: '/login', name: 'login', component: Login},
     {path: '/registration', name: 'registration', component: Registration},
     {path: '/cart', name: 'cart', component: Cart},
