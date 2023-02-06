@@ -2,8 +2,10 @@
   <h1>Just buy</h1>
   <div class="list">
     <router-link to="catalog" @click="activeButton(); catalogActiveButton = true" :class="{active_button : catalogActiveButton}"><p>Catalog</p></router-link>
-    <router-link to="login" @click="activeButton(); loginActiveButton = true" :class="{active_button : loginActiveButton}"><p>Login</p></router-link>
-    <router-link to="registration" @click="activeButton(); registerActiveButton = true" :class="{active_button : registerActiveButton}"><p>Registration</p></router-link>
+    <div class="dop-list" v-if="ifAuthenticated === false">
+      <router-link to="login" @click="activeButton(); loginActiveButton = true" :class="{active_button : loginActiveButton}"><p>Login</p></router-link>
+      <router-link to="registration" @click="activeButton(); registerActiveButton = true" :class="{active_button : registerActiveButton}"><p>Registration</p></router-link>
+    </div>
     <router-link to="cart" @click="activeButton(); cartActiveButton = true" :class="{active_button : cartActiveButton}"><p>Cart</p></router-link>
     <router-link to="orders" @click="activeButton(); ordersActiveButton = true" :class="{active_button : ordersActiveButton}"><p>Orders</p></router-link>
   </div>
@@ -19,7 +21,8 @@ export default {
       cartActiveButton: false,
       loginActiveButton: false,
       registerActiveButton: false,
-      ordersActiveButton: false
+      ordersActiveButton: false,
+      ifAuthenticated: false
     }
   },
   methods:{
@@ -42,6 +45,7 @@ a{
   text-decoration: none;
   font-size: 20px;
   font-weight: bold;
+  margin-right: 30px;
 }
 .list {
   display: flex;
@@ -57,5 +61,9 @@ a{
   box-shadow: 0px 1px 10px #ae9460;
   padding: 5px;
   color: brown;
+}
+.dop-list{
+  display: flex;
+  align-items: center;
 }
 </style>
