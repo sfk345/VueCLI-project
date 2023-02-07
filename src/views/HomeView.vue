@@ -1,17 +1,17 @@
 <template>
   <h1>Just buy</h1>
   <div class="list">
-    <router-link to="catalog" @click="activeButton(); catalogActiveButton = true" :class="{active_button : catalogActiveButton}"><p>Catalog</p></router-link>
-    <div class="dop-list" v-if="ifAuthenticated === false">
-      <router-link to="login" @click="activeButton(); loginActiveButton = true" :class="{active_button : loginActiveButton}"><p>Login</p></router-link>
-      <router-link to="registration" @click="activeButton(); registerActiveButton = true" :class="{active_button : registerActiveButton}"><p>Registration</p></router-link>
+    <router-link to="catalog" @click="activeButton(); catalogActiveButton = true" :class="{active_button : catalogActiveButton}"><p>Каталог</p></router-link>
+    <router-link to="cart" @click="activeButton(); cartActiveButton = true" :class="{active_button : cartActiveButton}"><p>Корзина</p></router-link>
+    <router-link to="orders" @click="activeButton(); ordersActiveButton = true" :class="{active_button : ordersActiveButton}"><p>Оформленные заказы</p></router-link>
+    <div class="dop-list">
+      <router-link v-if="!this.$store.state.token" to="login" @click="activeButton(); loginActiveButton = true" :class="{active_button : loginActiveButton}"><p>Логин</p></router-link>
+      <router-link to="registration" @click="activeButton(); registerActiveButton = true" :class="{active_button : registerActiveButton}"><p>Регистрация</p></router-link>
+      <router-link v-if="this.$store.state.token" to="logout" @click="Exit">Выход</router-link>
     </div>
-    <router-link to="cart" @click="activeButton(); cartActiveButton = true" :class="{active_button : cartActiveButton}"><p>Cart</p></router-link>
-    <router-link to="orders" @click="activeButton(); ordersActiveButton = true" :class="{active_button : ordersActiveButton}"><p>Orders</p></router-link>
   </div>
 </template>
 <script>
-import Catalog from "@/components/Catalog.vue";
 
 export default {
   name: "HomeView",
@@ -22,7 +22,9 @@ export default {
       loginActiveButton: false,
       registerActiveButton: false,
       ordersActiveButton: false,
-      ifAuthenticated: false
+      get isAuthenticated(){
+        return localStorage.getItem('is_authenticated')
+      }
     }
   },
   methods:{
@@ -32,6 +34,9 @@ export default {
       this.loginActiveButton = false
       this.registerActiveButton = false
       this.ordersActiveButton = false
+    },
+    Exit(){
+      this.$store.dispatch('logout')
     }
   }
 }
@@ -40,12 +45,14 @@ export default {
 h1{
   color: brown;
 }
-a{
+a, button{
   color: rgb(139 55 55 / 82%);
   text-decoration: none;
   font-size: 20px;
   font-weight: bold;
   margin-right: 30px;
+  background: none;
+  border: none;
 }
 .list {
   display: flex;

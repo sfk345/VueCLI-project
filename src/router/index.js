@@ -1,6 +1,4 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import store from "@/store";
-// import HomeView from "@/views/HomeView.vue";
 import Login from "@/components/Login.vue";
 import Registration from "@/components/Registration.vue";
 import Cart from "@/components/Cart.vue";
@@ -8,21 +6,21 @@ import Orders from "@/components/Orders.vue";
 import Catalog from "@/components/Catalog.vue";
 import HomeView from "@/views/HomeView.vue";
 
-const ifNotAuthenticated = (to, from, next) => {
-    if (!store.getters.isAuthenticated) {
-        next();
-        return;
-    }
-    next('');
-};
-
-const ifAuthenticated = (to, from, next) => {
-    if (store.getters.isAuthenticated) {
-        next();
-        return;
-    }
-    next('/login');
-}
+// const ifNotAuthenticated = (to, from, next) => {
+//     if (!store.getters.isAuthenticated) {
+//         next();
+//         return;
+//     }
+//     next('');
+// };
+//
+// const ifAuthenticated = (to, from, next) => {
+//     if (store.getters.isAuthenticated) {
+//         next();
+//         return;
+//     }
+//     next('/login');
+// }
 
 const routes = [
     {path: '', redirect: {name: HomeView}},
@@ -31,6 +29,7 @@ const routes = [
     {path: '/registration', name: 'registration', component: Registration},
     {path: '/cart', name: 'cart', component: Cart},
     {path: '/orders', name: 'orders', component: Orders},
+    {path: '/logout', name: 'logout', component: Logout}
     // {
     //     path: '/',
     //     name: 'home',
@@ -51,7 +50,7 @@ const routes = [
 
 
 const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL), routes
+    history: createWebHistory(), routes
 })
 
 export default router

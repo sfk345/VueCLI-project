@@ -7,13 +7,13 @@
     <input type="email" required v-model="email" />
     <label>Password</label>
     <input type="password" required v-model="password">
-    <hr>
-    <button type="submit">Registration</button>
+    <input type="submit" value="Зарегистрироваться">
   </form>
 </template>
 
 <script>
 export default {
+  name: "Registration",
   data(){
     return{
       fullName: "",
@@ -23,13 +23,14 @@ export default {
   },
   methods: {
     registration(){
-      const userData = {
-        fullName: this.fullName,
-        email: this.email,
-        password: this.password
-      };
-
+      let userData = {
+        fyo: JSON.parse(JSON.stringify(this.fullName)),
+        email: JSON.parse(JSON.stringify(this.email)),
+        password: JSON.parse(JSON.stringify(this.password))
+      }
+      this.$store.dispatch('')
     }
+
   }
 }
 </script>
