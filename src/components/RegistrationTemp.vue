@@ -1,23 +1,23 @@
 <template>
-  <form class="registration" @submit.prevent="registration">
+  <form class="registration" @submit.prevent="validation">
     <h1>Регистрация</h1>
     <label>ФИО</label>
-    <input type="text" required v-model="fullName" />
+    <input type="text" v-model="fullName" />
     <label>Email</label>
-    <input type="email" required v-model="email" />
+    <input type="email" v-model="email" />
     <label>Пароль</label>
-    <input type="password" required v-model="password">
-    <button type="submit">Зарегистрироваться</button>
+    <input type="password" v-model="password">
+    <button type="submit" @click="registration">Зарегистрироваться</button>
   </form>
-<!--  <p v-for="er in errors" v-bind:key="er">{{er}}</p>-->
+  <p v-for="er in errors" v-bind:key="er">{{er}}</p>
   <p v-if="this.$store.state.ERRORS.length !== 0">{{this.$store.state.ERRORS}}</p>
 </template>
 
 <script>
 export default {
   name: "RegistrationTemp",
-  data(){
-    return{
+  data() {
+    return {
       fullName: "",
       email: "",
       password: "",
@@ -25,15 +25,43 @@ export default {
     };
   },
   methods: {
-    registration(){
+    registration() {
       let userData = {
         fio: JSON.parse(JSON.stringify(this.fullName)),
         email: JSON.parse(JSON.stringify(this.email)),
         password: JSON.parse(JSON.stringify(this.password))
       }
       this.$store.dispatch('registration', userData)
-    }
+    },
+    validation(){
+      this.errors = []
 
+      if(!this.fullName && !this.email && !this.password) {
+        this.errors.push('*все поля обязательны для заполнения')
+      }else{
+        if(this.fullName.split(' ').length !== 3){
+          this.errors.push('ФИО должно содержать фамилию, имя, отчество')
+        }
+        if(this.password.length < 6){
+          this.errors.push('*пароль должен содержать не менее 8 символов')
+        }
+        // if(!this.password.indexOf(' ')===0){
+        //   this.errors.push('*пароль не должен содержать пробелы')
+        // // }
+        // if(this.email.indexOf('@')===0){
+        //   this.errors.push('*электронная почта должна содержать символ "@"')
+        // // }
+        // if(!this.email.indexOf(' ')===-1){
+        //   this.errors.push('*электронная почта не должна содержать пробелы')
+        // }
+      }
+
+
+      if(this.errors.length===0){
+        this.register()
+      }
+
+    }
   }
 }
 </script>

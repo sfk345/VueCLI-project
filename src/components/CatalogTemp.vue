@@ -1,24 +1,27 @@
 <template>
   <div class="catalog">
     <div class="one-product">
-      <img src="#" alt="img">
       <h3>Lorem Ipsum</h3>
+      <p>Описание:</p>
       <p>Lorem Ipsum dolor sit amet</p>
-      <input  v-if="this.$store.state.USER_TOKEN" type="submit" value="Добавить">
+      <p>Цена: 5000</p>
+      <button  v-if="this.$store.state.USER_TOKEN" type="submit">Добавить</button>
     </div>
     <div class="one-product">
-      <img src="#" alt="img">
       <h3>Lorem Ipsum</h3>
+      <p>Описание:</p>
       <p>Lorem Ipsum dolor sit amet</p>
-      <input  v-if="this.$store.state.USER_TOKEN" type="submit" value="Добавить">
+      <p>Цена: 5000</p>
+      <button  v-if="this.$store.state.USER_TOKEN" type="submit">Добавить</button>
     </div>
     <div class="one-product">
-      <img src="#" alt="img">
       <h3>Lorem Ipsum</h3>
+      <p>Описание:</p>
       <p>Lorem Ipsum dolor sit amet</p>
-      <input  v-if="this.$store.state.USER_TOKEN" type="submit" value="Добавить">
+      <p>Цена: 5000</p>
+      <button  v-if="this.$store.state.USER_TOKEN" type="submit">Добавить</button>
     </div>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -40,13 +43,17 @@ export default {
   border-radius: 10px;
   color: brown;
 }
-input[type=submit]{
+button{
   border: none;
   background: rgb(139 55 55 / 82%);
   padding: 7px;
   border-radius: 13px;
   color: antiquewhite;
   font-size: 15px;
+  width: 100%;
+}
+button:hover{
+  box-shadow: inset 2px 8px 10px #600606;
 }
 
 
