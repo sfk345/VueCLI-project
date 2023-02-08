@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "Catalog"
+  name: "Catalog-Temp"
 }
 </script>
 
@@ -32,6 +32,10 @@ export default {
 }
 .one-product{
   margin-left: 40px;
+  background-color: antiquewhite;
+  padding: 30px;
+  border-radius: 10px;
+  color: brown;
 }
 
 

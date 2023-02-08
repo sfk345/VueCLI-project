@@ -1,10 +1,10 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import Login from "@/components/Login.vue";
-import Registration from "@/components/Registration.vue";
-import Cart from "@/components/Cart.vue";
-import Orders from "@/components/Orders.vue";
-import Catalog from "@/components/Catalog.vue";
-import HomeView from "@/views/HomeView.vue";
+import CatalogTemp from "@/components/CatalogTemp.vue";
+import LoginTemp from "@/components/LoginTemp.vue";
+import RegistrationTemp from "@/components/RegistrationTemp.vue";
+import CartTemp from "@/components/CartTemp.vue";
+import OrdersTemp from "@/components/OrdersTemp.vue";
+import LogoutTemp from "@/components/LogoutTemp.vue";
 
 // const ifNotAuthenticated = (to, from, next) => {
 //     if (!store.getters.isAuthenticated) {
@@ -23,29 +23,13 @@ import HomeView from "@/views/HomeView.vue";
 // }
 
 const routes = [
-    {path: '', redirect: {name: HomeView}},
-    {path: '/catalog', name: 'catalog', component: Catalog},
-    {path: '/login', name: 'login', component: Login},
-    {path: '/registration', name: 'registration', component: Registration},
-    {path: '/cart', name: 'cart', component: Cart},
-    {path: '/orders', name: 'orders', component: Orders},
-    {path: '/logout', name: 'logout', component: Logout}
-    // {
-    //     path: '/',
-    //     name: 'home',
-    //     component: function () {
-    //         return import('../views/HomeView.vue');
-    //     },
-    //     beforeEnter: ifAuthenticated,
-    // },
-    // {
-    //     path: '/login',
-    //     name: 'login',
-    //     component: function () {
-    //         return import('@/components/Login.vue');
-    //     },
-    //     beforeEnter: ifNotAuthenticated,
-    // }
+    {path: '', redirect: {name: 'catalog'}},
+    {path: '/catalog', name: 'catalog', component: CatalogTemp},
+    {path: '/login', name: 'login', component: LoginTemp},
+    {path: '/registration', name: 'registration', component: RegistrationTemp},
+    {path: '/cart', name: 'cart', component: CartTemp},
+    {path: '/orders', name: 'orders', component: OrdersTemp},
+    {path: '/logout', name: 'logout', component: LogoutTemp},
 ]
 
 
@@ -54,3 +38,20 @@ const router = createRouter({
 })
 
 export default router
+
+// {
+//     path: '/',
+//     name: 'home',
+//     component: function () {
+//         return import('../views/HomeView.vue');
+//     },
+//     beforeEnter: ifAuthenticated,
+// },
+// {
+//     path: '/login',
+//     name: 'login',
+//     component: function () {
+//         return import('@/components/LoginTemp.vue');
+//     },
+//     beforeEnter: ifNotAuthenticated,
+// }

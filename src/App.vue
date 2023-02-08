@@ -1,6 +1,8 @@
 <template>
-  <home-view></home-view>
-  <router-view></router-view>
+  <div id="app">
+    <home-view></home-view>
+    <router-view></router-view>
+  </div>
 </template>
 
 <style>
@@ -28,6 +30,21 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
-<script setup>
+<script>
+
 import HomeView from "@/views/HomeView.vue";
+
+export default {
+  name: 'App',
+  components:{
+    HomeView
+  },
+  beforeMount() {
+    localStorage.setItem('USER_TOKEN', this.$store.state.USER_TOKEN)
+  }
+}
+
+// export default defineComponent({
+//   components: {HomeView}
+// })
 </script>

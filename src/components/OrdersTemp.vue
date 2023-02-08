@@ -1,10 +1,12 @@
 <template>
+  <div class="orders">
 
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Home"
+  name: "OrdersTemp"
 }
 </script>
 

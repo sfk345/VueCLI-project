@@ -9,26 +9,29 @@
     <input type="password" required v-model="password">
     <input type="submit" value="Зарегистрироваться">
   </form>
+  <p v-for="er in errors" v-bind:key="er">{{er}}</p>
+  <p v-if="this.$store.state.ERRORS.length !== 0">{{this.$store.state.ERRORS}}</p>
 </template>
 
 <script>
 export default {
-  name: "Registration",
+  name: "RegistrationTemp",
   data(){
     return{
       fullName: "",
       email: "",
       password: "",
+      errors: []
     };
   },
   methods: {
     registration(){
       let userData = {
-        fyo: JSON.parse(JSON.stringify(this.fullName)),
+        fio: JSON.parse(JSON.stringify(this.fullName)),
         email: JSON.parse(JSON.stringify(this.email)),
         password: JSON.parse(JSON.stringify(this.password))
       }
-      this.$store.dispatch('')
+      this.$store.dispatch('registration', userData)
     }
 
   }
@@ -52,7 +55,7 @@ export default {
   background: none;
   margin-bottom: 10px;
 }
-.registration button {
+.registration input[type=submit] {
   border: none;
   background: rgb(139 55 55 / 82%);
   padding: 7px;
@@ -67,5 +70,9 @@ label{
 h1 {
   color: brown;
   margin: 20px 0;
+}
+p{
+  color: #ff1457;
+  font-family: fantasy;
 }
 </style>

@@ -2,28 +2,32 @@
   <form class="login" @submit.prevent="login">
     <h1>Sign in</h1>
     <label>Email</label>
-    <input type="email" required v-model="email" />
+    <input type="email" required v-model="email">
     <label>Password</label>
     <input type="password" required v-model="password">
-    <hr />
     <button type="submit">Login</button>
   </form>
+  <p v-if="this.$store.state.ERRORS.length !== 0">{{this.$store.state.ERRORS}}</p>
 </template>
 
 <script>
 export default {
+  name: 'Login-Temp',
   data() {
     return {
-      username: "",
+      fullName: "",
+      email: "",
       password: "",
     };
   },
   methods:{
     login() {
         const userData = {
-          username: this.username,
-          password: this.password,
-        };
+          email: JSON.parse(JSON.stringify(this.email)),
+          password: JSON.parse(JSON.stringify(this.password))
+        }
+        this.$store.dispatch('login', userData)
+
 
         // this.$store
         //     .dispatch(AUTH_REQUEST, userData)
@@ -65,5 +69,9 @@ export default {
   h1 {
     color: brown;
     margin: 20px 0;
+  }
+  p{
+    color: #ff1457;
+    font-family: fantasy;
   }
 </style>
