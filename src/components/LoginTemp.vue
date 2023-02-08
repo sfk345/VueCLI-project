@@ -1,11 +1,11 @@
 <template>
   <form class="login" @submit.prevent="login">
-    <h1>Sign in</h1>
+    <h1>Войти</h1>
     <label>Email</label>
     <input type="email" required v-model="email">
-    <label>Password</label>
+    <label>Пароль</label>
     <input type="password" required v-model="password">
-    <button type="submit">Login</button>
+    <button type="submit">Войти</button>
   </form>
   <p v-if="this.$store.state.ERRORS.length !== 0">{{this.$store.state.ERRORS}}</p>
 </template>
@@ -61,6 +61,9 @@ export default {
     border-radius: 13px;
     color: antiquewhite;
     font-size: 15px;
+  }
+  .login button:hover{
+    box-shadow: inset 2px 8px 10px #600606;
   }
   label{
     color: brown;

@@ -1,14 +1,15 @@
 <template>
-  <h1>Just buy</h1>
+  <h1>Lorem Ipsum</h1>
   <div class="list">
     <router-link to="catalog" @click="activeButton(); catalogActiveButton = true" :class="{active_button : catalogActiveButton}"><p>Каталог</p></router-link>
-    <router-link to="cart" @click="activeButton(); cartActiveButton = true" :class="{active_button : cartActiveButton}"><p>Корзина</p></router-link>
-    <router-link to="orders" @click="activeButton(); ordersActiveButton = true" :class="{active_button : ordersActiveButton}"><p>Заказы</p></router-link>
-    <div class="dop-list">
-      <router-link v-if="!this.$store.state.USER_TOKEN" to="login" @click="activeButton(); loginActiveButton = true" :class="{active_button : loginActiveButton}"><p>Логин</p></router-link>
-      <router-link v-if="!this.$store.state.USER_TOKEN" to="registration" @click="activeButton(); registerActiveButton = true" :class="{active_button : registerActiveButton}"><p>Регистрация</p></router-link>
-      <router-link v-if="this.$store.state.USER_TOKEN" to="logout" @click="Exit">Выход</router-link>
-    </div>
+    <router-link v-if="this.$store.state.USER_TOKEN" to="cart" @click="activeButton(); cartActiveButton = true" :class="{active_button : cartActiveButton}"><p>Корзина</p></router-link>
+    <router-link v-if="this.$store.state.USER_TOKEN" to="orders" @click="activeButton(); ordersActiveButton = true" :class="{active_button : ordersActiveButton}"><p>Заказы</p></router-link>
+    <router-link v-if="!this.$store.state.USER_TOKEN" to="login" @click="activeButton(); loginActiveButton = true" :class="{active_button : loginActiveButton}"><p>Логин</p></router-link>
+    <router-link v-if="!this.$store.state.USER_TOKEN" to="registration" @click="activeButton(); registerActiveButton = true" :class="{active_button : registerActiveButton}"><p>Регистрация</p></router-link>
+    <router-link v-if="this.$store.state.USER_TOKEN" to="logout" @click="Exit">Выход</router-link>
+<!--    <div class="dop-list">-->
+
+<!--    </div>-->
   </div>
 </template>
 <script>
@@ -45,6 +46,9 @@ export default {
 h1{
   color: brown;
 }
+p:hover{
+  border-bottom: solid;
+}
 a, button{
   color: rgb(139 55 55 / 82%);
   text-decoration: none;
@@ -69,8 +73,8 @@ a, button{
   padding: 5px;
   color: brown;
 }
-.dop-list{
-  display: flex;
-  align-items: center;
-}
+/*.dop-list{*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*}*/
 </style>

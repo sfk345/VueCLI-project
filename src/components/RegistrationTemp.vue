@@ -1,15 +1,15 @@
 <template>
   <form class="registration" @submit.prevent="registration">
-    <h1>Sign up</h1>
-    <label>Full name</label>
+    <h1>Регистрация</h1>
+    <label>ФИО</label>
     <input type="text" required v-model="fullName" />
     <label>Email</label>
     <input type="email" required v-model="email" />
-    <label>Password</label>
+    <label>Пароль</label>
     <input type="password" required v-model="password">
-    <input type="submit" value="Зарегистрироваться">
+    <button type="submit">Зарегистрироваться</button>
   </form>
-  <p v-for="er in errors" v-bind:key="er">{{er}}</p>
+<!--  <p v-for="er in errors" v-bind:key="er">{{er}}</p>-->
   <p v-if="this.$store.state.ERRORS.length !== 0">{{this.$store.state.ERRORS}}</p>
 </template>
 
@@ -55,13 +55,16 @@ export default {
   background: none;
   margin-bottom: 10px;
 }
-.registration input[type=submit] {
+.registration button {
   border: none;
   background: rgb(139 55 55 / 82%);
   padding: 7px;
   border-radius: 13px;
   color: antiquewhite;
   font-size: 15px;
+}
+.registration button:hover{
+  box-shadow: inset 2px 8px 10px #600606;
 }
 label{
   color: brown;
