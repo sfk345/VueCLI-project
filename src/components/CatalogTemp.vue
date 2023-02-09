@@ -1,32 +1,12 @@
 <template>
   <div class="catalog">
     <product-temp v-for="product in products.data" v-bind:key="product.id" :product-data="product"></product-temp>
-<!--    <div class="one-product">-->
-<!--      <h3>Lorem Ipsum</h3>-->
-<!--      <p>Описание:</p>-->
-<!--      <p>Lorem Ipsum dolor sit amet</p>-->
-<!--      <p>Цена: 5000</p>-->
-<!--      <button  v-if="this.$store.state.USER_TOKEN" type="submit">Добавить</button>-->
-<!--    </div>-->
-<!--    <div class="one-product">-->
-<!--      <h3>Lorem Ipsum</h3>-->
-<!--      <p>Описание:</p>-->
-<!--      <p>Lorem Ipsum dolor sit amet</p>-->
-<!--      <p>Цена: 5000</p>-->
-<!--      <button  v-if="this.$store.state.USER_TOKEN" type="submit">Добавить</button>-->
-<!--    </div>-->
-<!--    <div class="one-product">-->
-<!--      <h3>Lorem Ipsum</h3>-->
-<!--      <p>Описание:</p>-->
-<!--      <p>Lorem Ipsum dolor sit amet</p>-->
-<!--      <p>Цена: 5000</p>-->
-<!--      <button  v-if="this.$store.state.USER_TOKEN" type="submit">Добавить</button>-->
-<!--    </div>-->
   </div>
+  <div>Количество товара в корзине: {{$store.state.PRODUCT_CART.length}}</div>
 </template>
 
 <script>
-import ProductTemp from "@/components/ProductTemp.vue";
+import ProductTemp from "@/views/ProductTemp.vue";
 import axios from "axios";
 
 export default {
@@ -42,11 +22,11 @@ export default {
       this.products = response.data
     })
   },
-  methods:{
-      // inCart(product){
-      //   state.cart.push(product)
-      // }
-  }
+  // methods:{
+  //     // inCart(product){
+  //     //   state.cart.push(product)
+  //     // }
+  // }
 }
 </script>
 

@@ -2,13 +2,14 @@
   <form class="registration" @submit.prevent="validation">
     <h1>Регистрация</h1>
     <label>ФИО</label>
-    <input v-if="this.$store.state.ERRORS.length !== 0" type="text" v-model="fullName">
+    <input type="text" v-model="fullName">
     <label>Email</label>
     <input type="email" v-model="email">
     <label>Пароль</label>
     <input type="password" v-model="password">
     <button type="submit" @click="registration">Зарегистрироваться</button>
   </form>
+  <button id="back" @click="Back">Назад</button>
   <p v-for="er in errors" v-bind:key="er">{{er}}</p>
   <p v-if="this.$store.state.ERRORS.length !== 0">{{this.$store.state.ERRORS}}</p>
 </template>
@@ -32,6 +33,9 @@ export default {
         password: JSON.parse(JSON.stringify(this.password))
       }
       this.$store.dispatch('registration', userData)
+    },
+    Back(){
+      this.$router.push('/')
     },
     validation(){
       this.errors = []
@@ -105,5 +109,16 @@ h1 {
 p{
   color: #ff1457;
   font-family: fantasy;
+}
+#back{
+  border: none;
+  background: rgb(139 55 55 / 82%);
+  padding: 7px;
+  border-radius: 13px;
+  color: antiquewhite;
+  font-size: 15px;
+  position: absolute;
+  right: 325px;
+  top: 170px;
 }
 </style>

@@ -7,7 +7,6 @@
     <input type="password" required v-model="password">
     <button type="submit">Войти</button>
   </form>
-  <p v-if="this.$store.state.ERRORS.length !== 0">{{this.$store.state.ERRORS}}</p>
 </template>
 
 <script>

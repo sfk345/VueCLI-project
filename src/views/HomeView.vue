@@ -7,9 +7,6 @@
     <router-link v-if="!this.$store.state.USER_TOKEN" to="login" @click="activeButton(); loginActiveButton = true" :class="{active_button : loginActiveButton}"><p>Логин</p></router-link>
     <router-link v-if="!this.$store.state.USER_TOKEN" to="registration" @click="activeButton(); registerActiveButton = true" :class="{active_button : registerActiveButton}"><p>Регистрация</p></router-link>
     <router-link v-if="this.$store.state.USER_TOKEN" to="logout" @click="Exit">Выход</router-link>
-<!--    <div class="dop-list">-->
-
-<!--    </div>-->
   </div>
 </template>
 <script>
@@ -24,7 +21,7 @@ export default {
       registerActiveButton: false,
       ordersActiveButton: false,
       get isAuthenticated(){
-        return localStorage.getItem('is_authenticated')
+        return localStorage.getItem('IS_AUTHENTICATED')
       }
     }
   },

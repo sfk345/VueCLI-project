@@ -3,7 +3,7 @@
     <h3>{{productData.name}}</h3>
     <h3>Описание:</h3><p>{{productData.description}}</p>
     <h4>Цена: {{productData.price}}</h4>
-    <button v-if="this.$store.state.USER_TOKEN">Добавить</button>
+    <button v-if="this.$store.state.USER_TOKEN" @click="addToCart">Добавить</button>
   </div>
 </template>
 
@@ -11,26 +11,12 @@
 export default {
   name: "ProductTemp",
   props: ['productData'],
-  // data(){
-  //   return{
-  //     // id: "",
-  //     // product_id: "",
-  //     // name_product: "",
-  //     // description: "",
-  //     // price: ""
-  //   }
-  // },
+
   methods:{
-    // addToCart(){
-    //   let productData = {
-    //     id: JSON.parse(JSON.stringify(this.id)),
-    //     product_id: JSON.parse(JSON.stringify(this.product_id)),
-    //     name_product: JSON.parse(JSON.stringify(this.name_product)),
-    //     description: JSON.parse(JSON.stringify(this.description)),
-    //     price: JSON.parse(JSON.stringify(this.price))
-    //   }
-    //   this.$store.dispatch('addToCart', productData)
-    // }
+    addToCart(){
+      this.$store.dispatch('addToCart', this.productData.id)
+      this.$store.dispatch('listProducts')
+    }
   }
 }
 </script>
@@ -44,7 +30,7 @@ export default {
   color: brown;
   margin-top: 25px;
   width: 20%;
-  height: 330px;
+  height: 350px;
 }
 .one-product:hover{
   box-shadow: 0 1px 20px 7px #d7c49f;
