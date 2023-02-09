@@ -2,9 +2,9 @@
   <form class="registration" @submit.prevent="validation">
     <h1>Регистрация</h1>
     <label>ФИО</label>
-    <input type="text" v-model="fullName" />
+    <input v-if="this.$store.state.ERRORS.length !== 0" type="text" v-model="fullName">
     <label>Email</label>
-    <input type="email" v-model="email" />
+    <input type="email" v-model="email">
     <label>Пароль</label>
     <input type="password" v-model="password">
     <button type="submit" @click="registration">Зарегистрироваться</button>

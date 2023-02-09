@@ -1,32 +1,52 @@
 <template>
   <div class="catalog">
-    <div class="one-product">
-      <h3>Lorem Ipsum</h3>
-      <p>Описание:</p>
-      <p>Lorem Ipsum dolor sit amet</p>
-      <p>Цена: 5000</p>
-      <button  v-if="this.$store.state.USER_TOKEN" type="submit">Добавить</button>
-    </div>
-    <div class="one-product">
-      <h3>Lorem Ipsum</h3>
-      <p>Описание:</p>
-      <p>Lorem Ipsum dolor sit amet</p>
-      <p>Цена: 5000</p>
-      <button  v-if="this.$store.state.USER_TOKEN" type="submit">Добавить</button>
-    </div>
-    <div class="one-product">
-      <h3>Lorem Ipsum</h3>
-      <p>Описание:</p>
-      <p>Lorem Ipsum dolor sit amet</p>
-      <p>Цена: 5000</p>
-      <button  v-if="this.$store.state.USER_TOKEN" type="submit">Добавить</button>
-    </div>
-    </div>
+    <product-temp v-for="product in products.data" v-bind:key="product.id" :product-data="product"></product-temp>
+<!--    <div class="one-product">-->
+<!--      <h3>Lorem Ipsum</h3>-->
+<!--      <p>Описание:</p>-->
+<!--      <p>Lorem Ipsum dolor sit amet</p>-->
+<!--      <p>Цена: 5000</p>-->
+<!--      <button  v-if="this.$store.state.USER_TOKEN" type="submit">Добавить</button>-->
+<!--    </div>-->
+<!--    <div class="one-product">-->
+<!--      <h3>Lorem Ipsum</h3>-->
+<!--      <p>Описание:</p>-->
+<!--      <p>Lorem Ipsum dolor sit amet</p>-->
+<!--      <p>Цена: 5000</p>-->
+<!--      <button  v-if="this.$store.state.USER_TOKEN" type="submit">Добавить</button>-->
+<!--    </div>-->
+<!--    <div class="one-product">-->
+<!--      <h3>Lorem Ipsum</h3>-->
+<!--      <p>Описание:</p>-->
+<!--      <p>Lorem Ipsum dolor sit amet</p>-->
+<!--      <p>Цена: 5000</p>-->
+<!--      <button  v-if="this.$store.state.USER_TOKEN" type="submit">Добавить</button>-->
+<!--    </div>-->
+  </div>
 </template>
 
 <script>
+import ProductTemp from "@/components/ProductTemp.vue";
+import axios from "axios";
+
 export default {
-  name: "Catalog-Temp"
+  name: "Catalog-Temp",
+  components: {ProductTemp},
+  data(){
+    return{
+      products: [],
+    }
+  },
+  mounted() {
+    axios.get(this.$store.state.API_URL + 'products').then((response)=>{
+      this.products = response.data
+    })
+  },
+  methods:{
+      // inCart(product){
+      //   state.cart.push(product)
+      // }
+  }
 }
 </script>
 
@@ -35,26 +55,10 @@ export default {
   display: flex;
   margin: 25px;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.one-product{
-  margin-left: 40px;
-  background-color: antiquewhite;
-  padding: 30px;
-  border-radius: 10px;
-  color: brown;
-}
-button{
-  border: none;
-  background: rgb(139 55 55 / 82%);
-  padding: 7px;
-  border-radius: 13px;
-  color: antiquewhite;
-  font-size: 15px;
-  width: 100%;
-}
-button:hover{
-  box-shadow: inset 2px 8px 10px #600606;
-}
+
 
 
 </style>

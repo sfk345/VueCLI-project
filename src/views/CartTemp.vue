@@ -6,7 +6,12 @@
 
 <script>
 export default {
-  name: "CartTemp"
+  name: "CartTemp",
+  data(){
+    return{
+      cart: []
+    }
+  }
 }
 </script>
 

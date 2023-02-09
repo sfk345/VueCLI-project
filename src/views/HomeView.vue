@@ -69,7 +69,7 @@ a, button{
   border-radius: 5px;
   background-color: antiquewhite;
   border: none;
-  box-shadow: 0px 1px 10px #ae9460;
+  box-shadow: 0 1px 10px #ae9460;
   padding: 5px;
   color: brown;
 }

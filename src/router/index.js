@@ -2,7 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 import CatalogTemp from "@/components/CatalogTemp.vue";
 import LoginTemp from "@/components/LoginTemp.vue";
 import RegistrationTemp from "@/components/RegistrationTemp.vue";
-import CartTemp from "@/components/CartTemp.vue";
+import CartTemp from "@/views/CartTemp.vue";
 import OrdersTemp from "@/components/OrdersTemp.vue";
 import LogoutTemp from "@/components/LogoutTemp.vue";
 
