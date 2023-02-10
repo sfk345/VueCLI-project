@@ -19,6 +19,9 @@ export const store = createStore({
         },
         PRODUCTS_ORDERS: (state, payload)=>{
             state.PRODUCT_ORDER = payload
+        },
+        ADD_PRODUCT: (state, product)=>{
+            state.PRODUCT_CART = product
         }
     },
     actions:{
@@ -56,7 +59,19 @@ export const store = createStore({
         },
         async addToCart({commit}, id){
             console.log(commit)
-            await axios.post(this.state.API_URL + 'cart/' + id, {}, {headers:{Authorization: 'Bearer' + this.state.USER_TOKEN}})
+            await axios.post(this.state.API_URL + `cart/${id}`, id,{
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                    'Authorization': 'Bearer ' + this.state.USER_TOKEN
+                }
+            }).then((response)=> {
+                    commit('ADD_PRODUCT', response.data.data)
+                })
+                // }).then((response) => {
+                //     commit('ADD_PRODUCT', response.data.data.message)
+                //     console.log(this.state.PRODUCT_CART)
+                //     router.push('/')
+                // })
         },
         async removeFromCart({commit}, id){
             console.log(commit)

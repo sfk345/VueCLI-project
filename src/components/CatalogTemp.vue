@@ -2,7 +2,7 @@
   <div class="catalog">
     <product-temp v-for="product in products.data" v-bind:key="product.id" :product-data="product"></product-temp>
   </div>
-  <div>Количество товара в корзине: {{$store.state.PRODUCT_CART.length}}</div>
+  <div>Количество товара в корзине: {{this.$store.state.PRODUCT_CART.length}}</div>
 </template>
 
 <script>
